@@ -1,4 +1,4 @@
-# Open Eppic — Build Roadmap (v1.0)
+# Open Eppic — Build Roadmap (v1.1)
  
 The Covenant (`Open_Eppic_Covenant.md`) is the highest overarching philosophy of this build. This Roadmap is subordinate to it and to `MVP_Spec.md`, and must be assessed against both. Unlike the Covenant, this is a **living document** — phases get checked off or annotated as work proceeds, and scope shifts are recorded here rather than left to drift silently. This Roadmap does not override MVP_Spec.md's Locked Decisions; if a phase turns out to require reopening one, that conflict is flagged the same way any other locked-decision conflict is flagged.
  
@@ -6,15 +6,15 @@ The Covenant (`Open_Eppic_Covenant.md`) is the highest overarching philosophy of
  
 ## Phase 0 — Foundations (pre-code)
  
-- Finalize the Open Strategic Decisions enough to unblock schema work: editor library, perpetual license form (enough to know what fields it needs, not final legal language), GitHub repo license, definition of "Evil" (enough to gate Content Guidelines drafting). These don't all need to be *fully* resolved, but each blocks something downstream — flag which.
-- **Build the transparency-log infrastructure itself**, sequenced before any strategic decision that would become the log's first real entry (e.g., the "Evil" definition, or any early moderation edge case). This is a prerequisite to decision-making, not a companion feature bundled with later governance UI:
+- Finalize the Open Strategic Decisions enough to unblock schema work: editor library, perpetual license form (enough to know what fields it needs, not final legal language), ~~GitHub repo license~~ **[DONE 2026-07-16: AGPL-3.0-or-later + DCO, Locked Decisions 17–18; see transparency log]**, definition of "Evil" (enough to gate Content Guidelines drafting). These don't all need to be *fully* resolved, but each blocks something downstream — flag which.
+- **Build the transparency-log infrastructure itself** **[PARTIALLY DONE 2026-07-16/17: markdown convention committed with inaugural entries; cadence set (monthly, automated); data-table half amended — see 2026-07-17 rescope entry]**, sequenced before any strategic decision that would become the log's first real entry (e.g., the "Evil" definition, or any early moderation edge case). This is a prerequisite to decision-making, not a companion feature bundled with later governance UI:
   - Document and commit the markdown convention for constitutional interpretations, opening with a historical-note pointer to the pre-existing **Open-Eppic-Research-and-Theory** repo (where prior decisions and research already live — this log is not a re-capture of that history, only what follows it).
-  - Stand up a minimal moderation-outcomes data table with a public read view.
-  - Implement baseline periodic report generation: a simple markdown report of aggregated hard numbers for the period (totals only — no comparisons, no charts). Report cadence (monthly or otherwise) is decided here.
+  - ~~Stand up a minimal moderation-outcomes data table with a public read view.~~ **[AMENDED 2026-07-17: Phase 0 delivers the capture schema as committed markdown (fields every moderation outcome records); the table + public read view move to Phase 1's initial schema pass, authored from that spec. LD 16 amended accordingly.]**
+  - Implement baseline periodic report generation: a simple markdown report of aggregated hard numbers for the period (totals only — no comparisons, no charts). ~~Report cadence (monthly or otherwise) is decided here.~~ **[Cadence DECIDED 2026-07-16: monthly, automated. Generation implementation follows the Phase 1 table.]**
   - Resolve the detailed shape (table schema, RLS/public-view design, report cadence) as part of this work — see MVP_Spec.md's "Transparency log detailed shape" open decision.
-- User interviews / journey mapping for the three user types (Space Owner, Creator, Reader), per the build methodology.
+- User interviews / journey mapping for the three user types (Space Owner, Creator, Reader), per the build methodology. **[AMENDED 2026-07-17: interviews deferred to early post-launch (not cancelled); founder journey-mapping brainstorm substituted for Phase 0. Commitment 8 strain accepted and mitigated via LD 18 research-participation contributions — see rescope entry.]**
 - Per-type metadata JSON contracts for each Element type (Work, Chapter, Character, Setting, System, Event, Item, Block) — needed before schema, per Locked Decision 8 / methodology note.
-- Legal: IP attorney engagement on license text, DMCA agent registration — long lead time, start early even though it lands pre-launch.
+- Legal: ~~IP attorney engagement on license text,~~ DMCA agent registration **[IN PROGRESS: founder filing]** — ~~long lead time, start early even though it lands pre-launch.~~ **[AMENDED 2026-07-17: attorney engagement moved to a Phase 5 launch gate (funding constraint); the platform does not launch with an unreviewed custom perpetual license. AGPL/DCO adopted verbatim need no review. See rescope entry.]**
 ## Phase 1 — Walking Skeleton
  
 - One vertical slice: create Space → Brand → Element → link → derive, end-to-end, ugly UI, real RLS.
@@ -41,7 +41,7 @@ The Covenant (`Open_Eppic_Covenant.md`) is the highest overarching philosophy of
 ## Phase 5 — Pre-Launch Hardening
  
 - Second-account RLS re-audit across all tables (public-by-accident assumption re-tested after full schema exists, not just at Phase 1).
-- Legal review completion (license text, DMCA registration finalized).
+- Legal review completion (license text, DMCA registration finalized). **[GATE, amended 2026-07-17: IP attorney review of the perpetual license is a hard launch gate — launch waits on it. AI-drafted license text is non-final by definition.]**
 - Verify the transparency log's public data and periodic report are actually publicly reachable (not just present in the database) — a public-facing view/page, even minimal, before launch.
 - Confirm open-source repo is public and satisfies the code/schema half of Commitment 6 (already substantially met by the Phase 1 migrations-in-GitHub discipline — this is a verification step, not new work).
 ---
