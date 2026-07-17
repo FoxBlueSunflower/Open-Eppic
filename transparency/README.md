@@ -37,6 +37,12 @@ invoked). Until then, everything of constitutional weight is logged the same
 way, and each entry states which conflict-resolution rules, if any, were
 applied.
 
+**Boundary with engineering ADRs:** purely technical decisions with no
+covenant weight (library internals, index strategy, refactors) are recorded
+as engineering ADRs elsewhere in the repo. Any decision that applies the
+Covenant's commitments, conflict rules, or Aim belongs here. When in doubt,
+it belongs here — the broad reading governs.
+
 ## Entry format
 
 Files are named `YYYY-MM-DD-short-slug.md` and contain:
