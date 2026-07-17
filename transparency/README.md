@@ -6,7 +6,7 @@ Part IV: *Transparency*).
 
 > **Historical note.** Decisions, research, and reasoning that precede this
 > log live in the
-> [Open-Eppic-Research-and-Theory](TODO-verify-url)
+> [Open-Eppic-Research-and-Theory](https://github.com/FoxBlueSunflower/Open-Eppic-Research-and-Theory)
 > repository. This log is not a re-capture of that history — it records only
 > what follows it.
 
