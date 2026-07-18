@@ -24,24 +24,37 @@ The log is split by kind (MVP_Spec.md, Locked Decision 16):
 3. **Contribution ledger** (`contribution-ledger.md`) — the public,
    append-only record of accepted contributions. See CONTRIBUTING.md.
 
-## What counts as a constitutional interpretation (broad reading)
+## What counts as a constitutional interpretation (formational reading)
 
-This log takes the **broad reading**: any decision that applies the Covenant's
-commitments, conflict-resolution rules, or Aim to a concrete question belongs
-here — not only decisions where two commitments visibly conflicted. Most
-significant decisions are conflicts; it depends only on where one stands.
+*Revised 2026-07-17, exercising the revision this section originally
+reserved. The original broad reading ("when in doubt, it belongs here")
+governed entries dated on or before 2026-07-17.*
 
-A future revision may distinguish *decisions* (Covenant applied, no live
-conflict) from *conflicts* (the "When Commitments Appear to Conflict" rules
-invoked). Until then, everything of constitutional weight is logged the same
-way, and each entry states which conflict-resolution rules, if any, were
-applied.
+Covenant **assessment** is universal: every feature, workflow, architecture,
+and process decision in this build is measured against the Covenant. Covenant
+**logging** is exceptional: an interpretation entry is written only for
+formational decisions — those meeting **any one** of these criteria:
+
+1. **Hard to reverse** — license terms, contributor terms, launch gates,
+   data-retention shape.
+2. **Touches member rights directly** — IP, dignity, privacy, exit, or
+   moderation *structure* (individual moderation outcomes are recorded in
+   the moderation-outcomes data, not here).
+3. **Invokes the conflict-resolution rules, or knowingly accepts a named
+   strain** of a Commitment.
+4. **Rejects an option as violating a Commitment** — rejections are
+   precedent.
+5. **Amends a prior logged entry or a Locked Decision.**
+
+Decisions meeting none of these are still Covenant-assessed, then recorded
+only as ordinary git history or an engineering ADR. The purpose of this
+narrowing is the log's own integrity: a log of everything is a log of
+nothing, and ceremony-as-overhead is the quiet death of Commitment 6.
 
 **Boundary with engineering ADRs:** purely technical decisions with no
 covenant weight (library internals, index strategy, refactors) are recorded
-as engineering ADRs elsewhere in the repo. Any decision that applies the
-Covenant's commitments, conflict rules, or Aim belongs here. When in doubt,
-it belongs here — the broad reading governs.
+as engineering ADRs elsewhere in the repo. When in doubt about whether a
+decision meets a criterion above, it belongs here.
 
 ## Entry format
 
