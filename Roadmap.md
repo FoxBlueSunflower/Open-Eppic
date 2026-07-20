@@ -1,4 +1,4 @@
-# Open Eppic — Build Roadmap (v1.1)
+# Open Eppic — Build Roadmap (v1.2)
  
 The Covenant (`Open_Eppic_Covenant.md`) is the highest overarching philosophy of this build. This Roadmap is subordinate to it and to `MVP_Spec.md`, and must be assessed against both. Unlike the Covenant, this is a **living document** — phases get checked off or annotated as work proceeds, and scope shifts are recorded here rather than left to drift silently. This Roadmap does not override MVP_Spec.md's Locked Decisions; if a phase turns out to require reopening one, that conflict is flagged the same way any other locked-decision conflict is flagged.
  
