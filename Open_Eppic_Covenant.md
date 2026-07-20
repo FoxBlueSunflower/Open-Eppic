@@ -168,6 +168,52 @@ The Twelve are equal. When two appear to pull against each other in application,
 4. **Balance, don't eliminate.** Where two commitments name real goods in tension — stewardship and exit, creator freedom and derivative stability — the resolution is graduated commitments that preserve both parties' essential interests while accepting that neither is made perfectly whole. Grandfathering is the standard mechanism.
 5. **The aim wins final ties.** When application still seems genuinely contradictory, return to the Constancy of Purpose. What serves "letting the love of a world become participation in it" decides.
 
+## What Evil Is
+
+Evil is never an identity. A person is not "a murderer"; a person has committed murder. Evil is an act, or the withholding of an act — never a self. A person's identity runs deeper than their deeds and is fully known only by God; their potential is always more than their worst act. Because evil never becomes who someone is, it can be named plainly without condemning a soul, the person doing it can be stopped (Commitment 7, Part V), and the door back is always real. Open Eppic's language — in moderation, in reports, in this Covenant — describes what was done, never what someone is.
+
+Evil is treating as worthless what God treats as sacred — or withholding the good one was placed to do. It has two forms: what is done, and what is left undone.
+
+We do not restate the commandments here; we name their essential shapes as they touch this community.
+
+1. **Desecration of the person.** Treating an image-bearer as a thing: dehumanization, cruelty for its own sake, exploitation of the vulnerable, contempt for life. This is the gravest shape, because it attacks the ground everything else stands on (Commitment 1).
+
+2. **Consumption of the person.** The sexual form of desecration, named on its own: turning a person's body, intimacy, or sexuality into a thing to be consumed. Sexual exploitation, the sexualization of children in any form whatsoever, non-consensual intimate depiction of real persons, and content built to serve appetite at a person's expense. Intimacy is given; it is never taken or sold on another's behalf. Where children are concerned there is no depiction/celebration distinction, no creative range, and no appeal to fiction — this is the one place the wide range of Commitment 2 closes completely.
+
+3. **Theft of stewardship.** Taking what was entrusted to another: plagiarism, extraction, seizing the fruit of another's work, stripping a creator of what they were given to tend (Commitment 3).
+
+4. **False witness.** Deceiving to gain or to harm: impersonation, fraud, misrepresented provenance, manipulation dressed as truth (Commitment 6).
+
+5. **Exploitation of desire.** Turning another's longing into an engine that serves you at their expense: predatory design, manufactured compulsion, envy cultivated for profit (Commitment 11).
+
+6. **Calling evil good.** The inversion: presenting any of the above as delightful, admirable, or deserved. This is the specific shape Commitment 2 refuses to platform — not the depiction of evil, but its celebration.
+
+### Withholding Good
+
+Evil's second form is quieter and easier to live with, which is why God names it so relentlessly. When He indicts His people through the prophets, the charge is rarely exotic wickedness. It is this: they stopped subjecting themselves to Him, and the proof was in whom they neglected. The poor unfed. The widow and the orphan undefended. The alien — the stranger inside the gate — unwelcomed. The fast kept while the worker went unpaid. Religion intact; the good withheld. The judgment on Sodom, in God's own telling, begins not with its infamies but here: arrogant, overfed, and unconcerned, it did not help the poor and needy.
+
+Withholding good and refusing the Ground are one movement. The prophets do not treat neglect of the needy and rebellion against God as two sins; the first is the evidence of the second. A community that acknowledges God's preeminence and lets its weak go undefended has abandoned the acknowledgment. Our orientation toward the Ground is tested here, not in our statements.
+
+The prophets name the categories, and this community has each of them:
+
+- **The stranger unwelcomed.** The newcomer is the alien inside our gate. Hospitality (Part IV) is the command concerning the sojourner, not a growth tactic. A community that lets new members arrive to silence has done evil by omission.
+- **The weak undefended.** The small creator without platform, resources, or reach is the poor at our door. Commitment 9 is this shape's positive form; the strong staying silent while the small are exploited or processed unjustly is its violation.
+- **The stranded unsupported.** Those who lose what held them up — the derivative creator whose foundation is withdrawn — are our widow and orphan. Grandfathering, notice, and transition support (Commitments 3, 4) are the community refusing to abandon its bereft.
+- **Craft hoarded.** Every member was taught; a member who will never teach withholds what was never solely theirs (Commitment 12). Teaching remains offered, not imposed — but a community-wide posture of hoarding is a community doing evil quietly.
+- **Truth unspoken.** Seeing the platform or a fellow member go wrong and saying nothing. Commitment 6 obligates the comfortable word withheld as surely as it forbids the false word spoken.
+
+None of this deputizes members to police one another's generosity; the measure of omission applies first and hardest to the platform itself, which is positioned over all and therefore owes most. But "I did nothing" is never mistaken for innocence when doing something was ours to do.
+
+### The Measure for Content
+
+Two lines govern the range: what a Work invites its audience to love, and how a Work shows what it shows.
+
+The first line is celebration. Stories may depict every shape of evil above; Scripture itself does. The test is not "does evil appear?" but: **does the Work invite its audience to delight in the evil as good — or does it show evil truthfully, carrying its real weight?** A story in which cruelty is committed is within the range. A story built so the audience savors the cruelty is not.
+
+The second line is manner. Even evil rightly shown is owed restraint in the showing, and Scripture is again the model: it records rape, murder, and atrocity — and does not linger. The act happens off-screen, behind a pulled curtain, or in a single line stating that it occurred. The weight is kept; the spectacle is refused. Accordingly, two manners of depiction are outside the range regardless of a story's moral posture: **explicit depiction of sex**, and **explicit violence** — gore and dwelt-upon bodily destruction. This is respect: for the reader, for the human beings such scenes are drawn from, and for the characters and works of others in whose worlds a member may be writing. That last respect is part of what Open Eppic exists to guarantee — nothing turns a creator against sharing their world faster than seeing their characters violated in derivative hands. The platform holds a floor of decency toward what others have made, as far as is reasonable. The Content Guidelines name the specifics.
+
+This measure requires judgment, and judgment can err. That is why moderation under it always publishes its pattern-level reasoning, always names the shape or line it acted against, and always leaves the door open (Commitments 6, 7). One boundary requires no judgment at all: where children are concerned, shape 2 closes the range completely.
+
 \---
 
 ## Part IV: How We Conduct Ourselves
