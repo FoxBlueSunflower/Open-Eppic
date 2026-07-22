@@ -96,6 +96,8 @@ Creators keep legal ownership; that ownership protects their stewardship. Open E
 
 "What you create" means what you originated. This commitment applies equally to Element creators (who steward the worlds they build) and derivative creators (who steward the Works they build atop Elements they have been permitted to use). When these stewardships come into tension — for example, when an Element creator wishes to withdraw an Element that many derivative Works depend on — grandfathering balances them: Works already made retain their existing permissions; new Works cannot be made from a withdrawn Element. See also Commitment 4.
 
+**What stewardship controls here.** Open Eppic exists to let the love of a world become participation in it; participation is not one feature of this platform among others but the thing it is for. A creator's control is therefore exercised at three points — whether to bring a work here, which Space to place it in, and whether to activate it — and not as a veto over each person who wishes to build. Activating an Element opens it to derivation by that Space's members, and that opening is not selectively withheld; withdrawal closes an Element to new derivation while Works already made stand, as above. A creator who wants their work published to readers but closed to builders is not being failed by Open Eppic; they are asking for what many other platforms exist to provide, and they remain free to use them. What we guarantee is narrower and firmer: what you originated remains yours, your lineage is never severed, your terms at the boundaries are honored, and no one — including us — takes your stewardship from you. This is stated plainly before anyone activates anything (Commitment 6); a covenant that surprised a creator with what they had given would be no covenant at all.
+
 #### 4\. No one is held here — what you made goes with you.
 
 The covenant is entered freely and can be exited freely. Data is portable. The platform is forkable. Open source protects your ability to take your work elsewhere. No lock-in, no hostage effects. Because the door is always open, staying means something.
@@ -106,7 +108,7 @@ Exit itself is protected unconditionally; exit *procedures* are designed to hono
 
 Open Eppic refuses the zero-sum frame. Element creators gain when derivative Works succeed. The platform succeeds when creators succeed — not the reverse. Rivalry is replaced by body: when one member is honored, all rejoice together.
 
-This is Open Eppic's commitment, not a claim on creators' generosity. A creator remains free under Commitment 3 to restrict their Element, set their own terms, or decline to share. Commitment 5 guarantees that *when* they share, the system rewards it rather than punishes it — through non-rivalrous design, fair revenue splits (if/when implemented), and incentives that align individual and community flourishing.
+This is Open Eppic's commitment, not a claim on creators' generosity. A creator remains free under Commitment 3 to choose whether to bring a work here at all, which Space to place it in, and whether to activate it — the points at which stewardship is exercised on this platform. Commitment 5 guarantees that *when* they share, the system rewards it rather than punishes it — through non-rivalrous design, fair revenue splits (if/when implemented), and incentives that align individual and community flourishing.
 
 \---
 
@@ -297,7 +299,7 @@ This fork provision is not a threat. It is the architecture of trust. Because Op
 
 ## Part VII: What Is Still Open
 
-This is v0.3. The following remain to be worked:
+This is v0.4. The following remain to be worked:
 
 * **\[THEOLOGICAL EXPANSIONS]** — scripture grounding for each commitment is present in the full legacy Charter; needs distillation into this document or a clean cross-reference model.
 * **\[DISPUTE RESOLUTION AND DISCIPLINE PROCESSES]** — concrete community processes for responding to failure, in a way that preserves the covenant character. Part V placeholder.
