@@ -56,7 +56,7 @@ Collections: two tables, two views, four functions.
 | `element_links` | Composition edges. Two shapes only: Work→Chapter, and non-Work-non-Block Element→Block-derivative. A strict subset of LD 5's wider adjacency-list design — no link "kind" yet, since composition is the only kind built here. |
 | `element_links_public` | Read surface joining links against `elements_public`, so the UI gets child title/type/status without N+1 queries. |
 | `attach_chapter_to_work()` / `detach_chapter_from_work()` | Owner-gated. Attaching does not copy anything — the Chapter stays itself, just ordered under the Work. This is the "Works are collections of Chapters" mechanic. |
-| `derive_block_into()` | Block reuse. Calls `derive_element()` under the hood — a "used" Block is a real, lineage-stamped derivative owned by whoever reused it, not a live reference. Explicitly refuses a Work as the host (Works hold Chapters, not Blocks) and refuses a Block as the host (no nesting). Static-copy-with-lineage, per LD 9 as written — not the deferred live-sync model. The UI's Block picker initially excluded the caller's own activated Blocks (an unstated, unintended restriction); fixed 2026-08-07 — reusing your own Blocks is exactly what the modularity use case needs. |
+| `derive_block_into()` | Block reuse. Calls `derive_element()` under the hood — a "used" Block is a real, lineage-stamped derivative owned by whoever reused it, not a live reference. Explicitly refuses a Work as the host (Works hold Chapters, not Blocks) and refuses a Block as the host (no nesting). Static-copy-with-lineage, per LD 9 as written — not the deferred live-sync model. **Activates the derivative immediately** (2026-08-07 fix): `derive_element()`'s normal inactive-by-default behavior made reused Blocks invisible to anyone but their new owner, including people who could already see the parent Element the Block was attached to — a real visibility bug, not a design choice, since a Block-derivative can never be re-derived (LD 6) so `is_active` here has nothing left to gate except plain visibility. The UI's Block picker also initially excluded the caller's own activated Blocks (a separate, unstated restriction); fixed 2026-08-07 — reusing your own Blocks is exactly what the modularity use case needs. |
 | `collections` / `collection_items` | A persistent, owner-private curation object. **Not** part of the `elements` graph — Collections sit outside LD 5's content types entirely, closer to a personal list than a content type. |
 | `collections_with_counts` / `collection_items_public` | Read surfaces for the above. |
 | `create_collection()` / `add_to_collection()` / `remove_from_collection()` | Ownership-gated; `add` also checks the Element being added is actually visible to the caller (owned, or activated). |
@@ -130,6 +130,19 @@ it. The UI binds its Derive affordance to `is_derivable`, never to
 Consequence to carry forward: if the deferred cross-Space or sub-derivation
 work ever changes the LD 6 bar, `is_derivable` is the one place the rule
 lives.
+
+**A second consequence, surfaced by a real bug (2026-08-07):** for a
+Block-derivative specifically, `is_active` can *only* ever mean "visible" —
+the "open to derivation" half is moot, because a derivative can never be
+re-derived regardless of activation state (LD 6). `derive_block_into()`
+originally left every reused Block at `derive_element()`'s normal
+inactive-by-default, which — since that default exists to gate a *further
+publishing decision* that doesn't apply here — did nothing but make reused
+Blocks invisible to anyone who could already see the Element they were
+attached to. Fixed by activating the derivative immediately on creation.
+The general lesson: `is_active`'s meaning is not uniform across every
+`type` value, and a default that is correct for originals is not
+automatically correct for every derivative shape.
 
 ## Demo accounts
 
