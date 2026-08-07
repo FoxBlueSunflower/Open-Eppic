@@ -9,10 +9,16 @@ The smallest artefact that makes the idea legible in one sitting:
 
 > create original → activate → derive → render the unbreakable lineage line.
 
-Nothing else. No Spaces (one implied), no Brands, no Collections, no Following,
-no endorsement tags, no governance, no editor library. Those are all real MVP
-scope and all deliberately absent here, because the point of this build is to
-put the *idea* in front of people quickly, not to ship the platform.
+Extended 2026-08-07 with three founder-requested compositions that grew
+naturally out of the same lineage mechanic rather than being separate
+features: Works as collections of Chapters, Blocks reusable in other
+Elements as static lineage-stamped copies, and Collections that can publish
+their assembled pieces as a new Work. Still absent, and still real MVP
+scope deliberately not built here: Spaces (one implied), Brands, Following,
+endorsement tags, governance, the editor library. The point remains putting
+the *idea* in front of people quickly, not shipping the platform — the three
+additions earned their place because each is a small, direct extension of
+the same `derive`/`activate`/lineage core, not a new mechanic.
 
 The test of whether it works: a person watches the derive-and-show-lineage
 happen once, with no explanation, and immediately imagines the tree that grows
@@ -35,16 +41,26 @@ touches nothing the attorney gate protects.
 
 ## Schema
 
-One table, one view, three functions.
+Content model: one table, two views, four functions. Composition (Works,
+Chapters, Block reuse): one join table, one view, three functions.
+Collections: two tables, two views, four functions.
 
 | Object | Purpose |
 |---|---|
-| `elements` | The whole content model. Subset of LD 5's polymorphic graph — same `type` enum, no `element_links` yet. |
-| `elements_public` | Read surface. Masks tombstoned content while keeping the node in the lineage graph. Exposes the computed `is_derivable`. |
+| `elements` | The whole content model. Subset of LD 5's polymorphic graph — same `type` enum. |
+| `elements_public` | Read surface. Masks tombstoned content while keeping the node in the lineage graph (title is tagged, not hidden — see below). Exposes the computed `is_derivable`. |
 | `set_activation()` | The creator consent moment (LD 7). Withdrawal is prospective-only. |
 | `derive_element()` | The only path that may write `derived_from_id`. Enforces the activation gate and the no-sub-derivation rule. |
 | `tombstone_element()` | Soft delete. Lineage survives. |
 | `restore_element()` | Reverses a tombstone, owner-only. Does not re-activate — the creator must activate again (LD 7's consent moment is a deliberate second step, not silently restored). |
+| `element_links` | Composition edges. Two shapes only: Work→Chapter, and non-Work-non-Block Element→Block-derivative. A strict subset of LD 5's wider adjacency-list design — no link "kind" yet, since composition is the only kind built here. |
+| `element_links_public` | Read surface joining links against `elements_public`, so the UI gets child title/type/status without N+1 queries. |
+| `attach_chapter_to_work()` / `detach_chapter_from_work()` | Owner-gated. Attaching does not copy anything — the Chapter stays itself, just ordered under the Work. This is the "Works are collections of Chapters" mechanic. |
+| `derive_block_into()` | Block reuse. Calls `derive_element()` under the hood — a "used" Block is a real, lineage-stamped derivative owned by whoever reused it, not a live reference. Explicitly refuses a Work as the host (Works hold Chapters, not Blocks) and refuses a Block as the host (no nesting). Static-copy-with-lineage, per LD 9 as written — not the deferred live-sync model. |
+| `collections` / `collection_items` | A persistent, owner-private curation object. **Not** part of the `elements` graph — Collections sit outside LD 5's content types entirely, closer to a personal list than a content type. |
+| `collections_with_counts` / `collection_items_public` | Read surfaces for the above. |
+| `create_collection()` / `add_to_collection()` / `remove_from_collection()` | Ownership-gated; `add` also checks the Element being added is actually visible to the caller (owned, or activated). |
+| `publish_collection()` | Creates a new Work; walks the Collection's items **alphabetically by title**; a non-Work item becomes one new Chapter (content copied); a Work item contributes **its own current Chapters individually** (also copied, also alphabetical), not itself as a single summary Chapter. Everything is a snapshot at publish time — nothing is cached from when an item was added, and publishing the same Collection twice produces two independent Works. Flat: no hierarchy, no ordering beyond alphabetical, matching the founder's explicit "not even in order" scoping. |
 
 Invariants enforced in the database, not the client:
 
@@ -59,10 +75,15 @@ Invariants enforced in the database, not the client:
   accepted for prototype purposes (2026-08-07), not the intended MVP
   behavior — LD 10's own append-only-versioning approach to content history
   is the more likely long-term shape for "undo," not a reversible tombstone.
-- Derivatives cannot be derived from (LD 6).
+- Derivatives cannot be derived from (LD 6) — this also bounds Block reuse:
+  a reused Block's copy cannot itself be reused again as a source.
 - Removed Elements keep their title, tagged `[removed] Original Title`
   rather than masked outright — the read surface (`elements_public`) still
   withholds `body` content, only `title` is shown.
+- `element_links` writes only happen through the three composition RPCs;
+  there is no direct insert/update/delete policy on the table (RLS defaults
+  to deny), so the composition rules (Work↔Chapter only, Block↔non-Work
+  only, no Block nesting) cannot be bypassed from the client.
 
 ## What it does *not* prove
 
@@ -70,6 +91,14 @@ Invariants enforced in the database, not the client:
   gate is untested and a good demo reception is not evidence it is solved.
 - **Any demand claim.** Everything in the journeys corpus remains
   hypothesis-grade until people are actually shown this.
+- **Collections at MVP scope.** LD 11 sequences Collections *after* the
+  Element/Block CRUD loop is streamlined; this prototype has Collections and
+  Work-Chapter composition ahead of that sequencing, which is fine for a
+  disposable demo but is a visible departure worth naming rather than a
+  quiet drift — a real Phase 3 build should still follow LD 11's ordering.
+  The atom's "flat, alphabetical, no filtering" Collection is also far
+  simpler than LD 11's eventual "flat/filterable, then ordered/hierarchical"
+  shape; nothing here should be read as having settled that design.
 
 ## Second-account verification
 
