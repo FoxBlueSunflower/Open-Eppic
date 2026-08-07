@@ -44,6 +44,7 @@ One table, one view, three functions.
 | `set_activation()` | The creator consent moment (LD 7). Withdrawal is prospective-only. |
 | `derive_element()` | The only path that may write `derived_from_id`. Enforces the activation gate and the no-sub-derivation rule. |
 | `tombstone_element()` | Soft delete. Lineage survives. |
+| `restore_element()` | Reverses a tombstone, owner-only. Does not re-activate — the creator must activate again (LD 7's consent moment is a deliberate second step, not silently restored). |
 
 Invariants enforced in the database, not the client:
 
@@ -51,8 +52,17 @@ Invariants enforced in the database, not the client:
   insert (build methodology; LD 6).
 - Derivatives can only be created through `derive_element()`; the RLS insert
   policy permits originals only, so lineage cannot be forged from WeWeb.
-- Hard deletes raise. `deleted_at` is one-way.
+- Hard deletes raise. `deleted_at` is one-way **except through `restore_element()`**,
+  which is owner-gated and stamps `restored_at` so the reversal leaves a
+  trace rather than looking like it never happened. This departs from the
+  strict one-way soft-delete the build methodology otherwise specifies;
+  accepted for prototype purposes (2026-08-07), not the intended MVP
+  behavior — LD 10's own append-only-versioning approach to content history
+  is the more likely long-term shape for "undo," not a reversible tombstone.
 - Derivatives cannot be derived from (LD 6).
+- Removed Elements keep their title, tagged `[removed] Original Title`
+  rather than masked outright — the read surface (`elements_public`) still
+  withholds `body` content, only `title` is shown.
 
 ## What it does *not* prove
 
