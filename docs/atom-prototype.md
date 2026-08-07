@@ -97,3 +97,18 @@ lives.
 `maren@demo.openeppic.test` (world owner) and `theo@demo.openeppic.test`
 (sub-creator), password `demo-atom-2026`. Dev environment only; rotate or drop
 before any instance is publicly reachable.
+
+## A GoTrue pitfall worth remembering
+
+Migration 0002's original seed insert into `auth.users` supplied only a
+subset of columns, leaving `confirmation_token`, `email_change`,
+`recovery_token` and similar columns `NULL`. Postgres allows this; GoTrue's
+Go driver does not — it scans these as non-nullable strings, so **every**
+sign-in and admin/users call failed with `converting NULL to string is
+unsupported`, surfaced to the client as a generic "Database error querying
+schema." This has nothing to do with RLS, triggers, or the schema in
+`0001`; it is purely a GoTrue driver constraint on `auth.users` rows created
+directly by SQL rather than through the Auth API. Fixed in migration `0004`
+and patched into `0002` so a fresh run doesn't reproduce it. Anyone seeding
+`auth.users` directly in future work should set these columns to `''`, not
+leave them at their column default.
