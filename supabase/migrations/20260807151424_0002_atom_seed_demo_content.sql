@@ -3,6 +3,14 @@
 -- No member originals enter this instance before the Phase 5 attorney gate.
 -- Two accounts so RLS is exercised from day one, per the build methodology.
 -- Idempotent: re-running is a no-op once elements exist.
+--
+-- NOTE: token columns (confirmation_token, email_change, recovery_token, etc.)
+-- are explicitly set to '' rather than left NULL. GoTrue's Go driver scans
+-- these as non-nullable strings; a NULL causes every /token (sign-in) and
+-- /admin/users call to fail with "converting NULL to string is unsupported" —
+-- surfaced to the client as a generic "Database error querying schema."
+-- This is a GoTrue driver constraint, not an RLS or application issue.
+-- Discovered and patched 2026-08-07 (see migration 0004).
 
 do $$
 declare
@@ -18,13 +26,16 @@ begin
     insert into auth.users (
       instance_id, id, aud, role, email, encrypted_password,
       email_confirmed_at, created_at, updated_at,
-      raw_app_meta_data, raw_user_meta_data
+      raw_app_meta_data, raw_user_meta_data,
+      confirmation_token, email_change, email_change_token_new,
+      email_change_token_current, recovery_token, phone_change, phone_change_token
     ) values (
       '00000000-0000-0000-0000-000000000000', v_maren, 'authenticated', 'authenticated',
       'maren@demo.openeppic.test', crypt('demo-atom-2026', gen_salt('bf')),
       now(), now(), now(),
       '{"provider":"email","providers":["email"]}'::jsonb,
-      '{"display_name":"Maren (world owner)"}'::jsonb
+      '{"display_name":"Maren (world owner)"}'::jsonb,
+      '', '', '', '', '', '', ''
     );
   end if;
 
@@ -34,13 +45,16 @@ begin
     insert into auth.users (
       instance_id, id, aud, role, email, encrypted_password,
       email_confirmed_at, created_at, updated_at,
-      raw_app_meta_data, raw_user_meta_data
+      raw_app_meta_data, raw_user_meta_data,
+      confirmation_token, email_change, email_change_token_new,
+      email_change_token_current, recovery_token, phone_change, phone_change_token
     ) values (
       '00000000-0000-0000-0000-000000000000', v_theo, 'authenticated', 'authenticated',
       'theo@demo.openeppic.test', crypt('demo-atom-2026', gen_salt('bf')),
       now(), now(), now(),
       '{"provider":"email","providers":["email"]}'::jsonb,
-      '{"display_name":"Theo (sub-creator)"}'::jsonb
+      '{"display_name":"Theo (sub-creator)"}'::jsonb,
+      '', '', '', '', '', '', ''
     );
   end if;
 
