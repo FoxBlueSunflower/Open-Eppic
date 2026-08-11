@@ -58,7 +58,7 @@ needs the founder's explicit acknowledgment before it is treated as settled.
 > recorded by the platform; identity does not fork; members port themselves.
 > Every growth idea — bounties, services, external participation, paid
 > updates — is an additional permission layer granted *by the rights-holder*
-> and *notarized*, never owned, by the platform.
+> and *recorded*, never owned, by the platform.
 
 This spine is what survived three independent stress tests — fork-safety,
 bankruptcy, and journey-demand — from three directions. It is the property
@@ -670,4 +670,5 @@ these are not yet decisions.
 
 ---
 
-*End of v0.1, revised 2026-07-22.*
+*End of v0.1, revised 2026-07-22; wording corrected 2026-08-11 ("notary" →
+"records custodian"; see MVP_Spec glossary, Registrar).*
