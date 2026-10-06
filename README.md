@@ -1,5 +1,9 @@
 # Open Eppic
 
+**Start here:** [Fanfiction Making Money: Resolved?](./docs/fanfiction-making-money-resolved.md)
+is the conclusion of this project: why the market already answered the
+question Open Eppic set out to solve, and the road that got there.
+
 ## License
 
 Licensed under the GNU Affero General Public License, either version 3 of
